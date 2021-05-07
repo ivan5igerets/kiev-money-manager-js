@@ -251,6 +251,10 @@ export default {
     }
   }
 
+  .css-calculate-button:active {
+    background-color: #d0d0d0;
+  }
+
   .css-calculate-button-date {
     .css-date-month-operation {
       font-size: 13px;
@@ -263,6 +267,10 @@ export default {
   .css-button-save {
     background-color: #FFF84D;
     border: 1px solid #FFF84D;
+  }
+
+  .css-button-save:active {
+    background-color: #fcf95c !important;
   }
 }
 
