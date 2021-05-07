@@ -53,9 +53,10 @@ export default {
                 password: this.password
             }) 
             .then(res => {
-                btn.disabled = false
-                Token.set(res.data.token)
-            this.$router.push({name: 'OperationHistoryDay'})
+                btn.disabled = false;
+                Token.set(res.data.token);
+                this.$emit('success')
+                this.$router.push({name: 'OperationHistoryDay'});
                 })
             .catch(err => {
                 btn.disabled = false
@@ -102,7 +103,7 @@ export default {
                         break;
                 }
             }
-        }
+        },
     },
 }
 </script>

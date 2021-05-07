@@ -17,7 +17,7 @@
 
         <!-- это надо исправить -->
         <transition :name="animName"  mode="out-in">
-            <component :is="Tab"> </component>
+            <component v-on:success="fetchUserData" :is="Tab"> </component>
         </transition>
 
     </div>
@@ -27,6 +27,7 @@
 <script>
 import SignIn from '@/components/SignIn.vue'
 import SignUp from '@/components/SignUp.vue'
+import { mapActions } from 'vuex'
 
 export default {
     components: {
@@ -78,7 +79,11 @@ export default {
                 }, 7)
             }
         
-        }
+        },
+
+        ...mapActions('auth',{
+            fetchUserData: 'FETCH_DATA'
+        }),
     },
 }
 </script>

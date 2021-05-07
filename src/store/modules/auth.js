@@ -1,3 +1,5 @@
+import api from '@/api/auth'
+
 export default {
     namespaced: true,
     state: () => ({ 
@@ -16,6 +18,15 @@ export default {
       
         loadingToggle(state, newValue) {
             state.isLoading = newValue;
+        }
+    },
+    actions: {
+        FETCH_DATA({commit}) {
+            api.getUser().then(res => {
+                console.log('action', res);
+                commit('setName', res.data.name);
+                commit('setEmail', res.data.email);
+            })
         }
     },
   }

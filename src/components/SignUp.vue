@@ -71,9 +71,10 @@ export default {
                 "password_confirmation": this.password2,
             })
             .then(res => {
-                btn.disabled = false
-                Token.set(res.data.token)
-                this.$router.push({name: 'OperationHistoryDay'})
+                btn.disabled = false;
+                Token.set(res.data.token);
+                this.$emit('success');
+                this.$router.push({name: 'OperationHistoryDay'});
                 })
             .catch(err => {
                 btn.disabled = false;
