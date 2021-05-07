@@ -5,7 +5,7 @@
         <v-list-item-content @click.stop="openGroupOperationHistory(data.k_category_group)">
           <div class="item align-center">
             <category_icon v-bind:a_icon="{s_icon_class: data.s_icon_class, s_icon_color: data.s_icon_color}"/>
-            <div class="main-part">
+            <div class="width-100">
               <div class="text">
                 <div class="css-group-title"> {{ data.text_group }}</div>
                 <span class="grey--text ml-2"> {{ data.m_sum_percent }} % </span>

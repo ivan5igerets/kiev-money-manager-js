@@ -5,7 +5,7 @@
         <v-list-item-content>
           <div class="item align-center">
             <category_icon v-bind:a_icon="data.a_icon"/>
-            <div class="main-part">
+            <div class="width-100">
               <div class="text">
                 <div class="css-category-title"> {{ data.text_category }}</div>
                 <span class="grey--text ml-2"> {{ data.m_sum_percent }} % </span>
@@ -67,10 +67,6 @@ export default {
   font-size: 16px;
   line-height: 19px;
   color: #787676;
-}
-
-.main-part {
-  width: 100%;
 }
 
 .text {
