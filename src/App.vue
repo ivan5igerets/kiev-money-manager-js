@@ -1,32 +1,69 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <component :is="layout">
+    </component>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import authApi from '@/api/auth'
+import additional from '@/layouts/additional.vue'
+import edit from '@/layouts/edit.vue'
+import empty from '@/layouts/empty.vue'
+import mainn from '@/layouts/main.vue'
+import { mapMutations } from 'vuex'
 
-#nav {
-  padding: 30px;
+import {Token} from '/src/session/Token.js';
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+export default {
+  components: {
+    empty,
+    edit,
+    additional,
+    mainn,
+  },
 
-    &.router-link-exact-active {
-      color: #42b983;
+  mounted() {
+    this.getUser();
+  },
+
+  computed: {
+    layout: function() {
+      return this.$route.meta.layout;
     }
-  }
+  },
+
+  methods: {
+
+    getUser() {
+      if(!Token.get())
+      {
+        this.$router.push('/')
+        return
+      }
+
+      this.loadingToggle(true);
+      authApi.getUser()
+      .then(res => {
+          this.setName(res.data.name);
+          this.setEmail(res.data.email);
+          this.loadingToggle(false);
+        })
+      .catch(err => {
+        console.log(err);
+        Token.reset()
+        this.$router.push('/')
+        this.loadingToggle(false);
+        })
+    },
+
+    ...mapMutations({
+      setName: "auth/setName",
+      setEmail: "auth/setEmail",
+      loadingToggle: "auth/loadingToggle",
+    }),
+
+  },
+
 }
-</style>
+</script>
