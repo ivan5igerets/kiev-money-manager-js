@@ -12,7 +12,7 @@
         id="enable_budget_mode"
         @change="setupChange('enable_budget_mode', enable_budget_mode)"
         v-model="enable_budget_mode"
-        label="Включить режим 'Бюджет' для категорий расхода"
+        label="Включить режим 'Бюджет' для категорий затраты"
       ></v-switch>
     </div>
   </div>
