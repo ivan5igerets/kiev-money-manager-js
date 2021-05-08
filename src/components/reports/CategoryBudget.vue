@@ -1,6 +1,6 @@
 <template>
   <div class="grey--text width-100 box-shadow css-budget-statistic-container">
-    <div class="black--text css-category-title">{{text_category}}</div>
+    <div class="black--text css-budget-category-title">{{text_category}}</div>
     <div v-show="!show_budget_statistic">Всего: {{m_sum_total}}</div>
     <div v-show="show_budget_statistic">
       <div class="mb-2">Бюджет: {{m_budget}}</div>
@@ -79,7 +79,7 @@ export default {
   padding: 12px 12px 2px;
 }
 
-.css-category-title {
+.css-budget-category-title {
   font-size: 16px;
 }
 
