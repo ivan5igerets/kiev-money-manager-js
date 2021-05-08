@@ -161,7 +161,7 @@ export default {
     display: none !important;
   }
   .v-list-item__action {
-    padding-right: 2px!important;
+    padding-right: 1px!important;
   }
 }
 </style>

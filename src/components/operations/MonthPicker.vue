@@ -44,10 +44,11 @@ export default {
 
     methods: {
         changeDate(dl_date) {
-          this.date = dl_date+'-01'
+          this.date = dl_date
+          const dl_date_normalize = dl_date+'-01'
           this.isDateOpen = false;
-          CoreDate.systemSet(this.date)
-          this.$root.$emit('change-date', this.date)
+          CoreDate.systemSet(dl_date_normalize)
+          this.$root.$emit('change-date', dl_date_normalize)
         },
 
         initDate() {
