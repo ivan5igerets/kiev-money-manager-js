@@ -10,20 +10,19 @@
       <v-tab-item>
         <div class="empty-month" v-if="!loading && spending.length === 0"> В этом месяце нет затрат </div>
         <Diagram
-            v-if="tab === 0"
-            key="1"
-            :data="spending"
-            v-bind:enable_budget_mode="enable_budget_mode"
+          v-if="tab === 0 && spending.length !== 0"
+          key="1"
+          :data="spending"
+          v-bind:enable_budget_mode="enable_budget_mode"
         />
       </v-tab-item>
-
       <v-tab-item>
         <div class="empty-month" v-if="!loading && income.length === 0"> В этом месяце нет доходов </div>
         <Diagram
-            v-if="tab === 1"
-            key="2"
-            :data="income"
-            v-bind:enable_budget_mode="enable_budget_mode"
+          v-if="tab === 1 && income.length !== 0"
+          key="2"
+          :data="income"
+          v-bind:enable_budget_mode="enable_budget_mode"
         />
       </v-tab-item>
     </v-tabs-items>
@@ -45,7 +44,7 @@ export default {
 
     data() {
         return {
-            tab: null,
+            tab: this.$route.query.is_income ?? 0,
             loading: true,
             date: CoreDate.systemNow(),
             enable_budget_mode: false,

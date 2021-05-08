@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <div class="indicator-box">
+      <div class="indicator-box" @click="openOperationMonthPage(1)">
         <div> Доход </div>
         <div class="income"> {{ monthlyIncome }} </div>
       </div>
@@ -9,7 +9,7 @@
         inset
         vertical
       ></v-divider>
-      <div class="indicator-box">
+      <div class="indicator-box" @click="openOperationMonthPage(0)">
         <div> Затраты </div>
         <div class="spending"> {{ monthlySpanding }} </div>
       </div>
@@ -118,6 +118,10 @@ export default {
   },
 
   methods: {
+    openOperationMonthPage(is_income) {
+      this.$router.push({name: 'Diagram', query: {is_income: is_income}})
+    },
+
     getOperations() {
       this.loading = true;
       this.days = [];
@@ -289,6 +293,10 @@ $balance: #028BD9;
   text-align: center;
   margin-top: 5px;
   width: 30%;
+}
+
+.indicator-box:active {
+  background-color: #eeeeee;
 }
 
 .income {
