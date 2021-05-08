@@ -43,13 +43,14 @@
             </v-card>
           </v-tab-item>
           <v-tab-item>
-            <v-card flat>
+            <v-card flat class="center">
               <v-card-text>
                 <v-color-picker
                   class="v-picker--full-width"
                   dot-size="22"
                   hide-canvas
                   hide-inputs
+                  hide-sliders
                   v-model="color_select"
                   show-swatches
                   width="100%"
