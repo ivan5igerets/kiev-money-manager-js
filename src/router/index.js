@@ -5,6 +5,12 @@ import {Token} from '/src/session/Token.js';
 Vue.use(VueRouter)
 
 const ifAuthenticated = (to, from, next) => {
+  if(!window.navigator.onLine)
+  {
+    next('/not-internet')
+    return
+  }
+
   const token = Token.get()
   if (token) {
     next()
@@ -14,12 +20,32 @@ const ifAuthenticated = (to, from, next) => {
 }
 
 const ifNotAuthenticated = (to, from, next) => {
+  if(!window.navigator.onLine)
+  {
+    next('/not-internet')
+    return
+  }
+
   const token = Token.get()
   if (token) {
     next('/operation-history-day')
     return
   }
   next()
+}
+
+const ifNotInternet = (to, from, next) => {
+  if(!window.navigator.onLine)
+  {
+    next()
+    return
+  }
+
+  const token = Token.get()
+  if (token)
+    next('/operation-history-day')
+  else
+    next('/')
 }
 
 const routes = [
@@ -31,6 +57,15 @@ const routes = [
     },
     beforeEnter: ifNotAuthenticated,
     component: () => import('../views/Auth.vue')
+  },
+  {
+    path: '/not-internet',
+    name: 'NotInternet',
+    meta: {
+      layout: 'empty'
+    },
+    beforeEnter: ifNotInternet,
+    component: () => import('../views/NotInternet.vue')
   },
   {
     path: '/settings',

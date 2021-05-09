@@ -24,7 +24,10 @@ export default {
   },
 
   mounted() {
-    this.getUser();
+    if(window.navigator.onLine)
+      this.getUser();
+    else
+      this.$router.push({name: 'NotInternet'})
   },
 
   computed: {
@@ -38,7 +41,7 @@ export default {
     getUser() {
       if(!Token.get())
       {
-        this.$router.push('/')
+        this.$router.push({name: 'NotInternet'})
         return
       }
 
