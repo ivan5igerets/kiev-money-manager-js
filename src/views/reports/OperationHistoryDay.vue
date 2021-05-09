@@ -3,7 +3,7 @@
     <div class="header">
       <div class="indicator-box" @click="openOperationMonthPage(1)">
         <div> Доход </div>
-        <div class="income"> {{ monthlyIncome }} </div>
+        <div class="income"> {{ monthlyIncome.toFixed() }} </div>
       </div>
       <v-divider
         inset
@@ -11,7 +11,7 @@
       ></v-divider>
       <div class="indicator-box" @click="openOperationMonthPage(0)">
         <div> Затраты </div>
-        <div class="spending"> {{ monthlySpanding }} </div>
+        <div class="spending"> {{ monthlySpanding.toFixed() }} </div>
       </div>
       <v-divider
         inset
@@ -19,7 +19,7 @@
       ></v-divider>
       <div class="indicator-box">
         <div> Баланс </div>
-        <div class="balance"> {{ monthlyIncome - monthlySpanding }} </div>
+        <div class="balance"> {{ (monthlyIncome - monthlySpanding).toFixed() }} </div>
       </div>
     </div>
       <div class="list-placeholder" v-if="!days.length && !loading">
