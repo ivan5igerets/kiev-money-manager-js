@@ -1,8 +1,6 @@
 <template>
   <div class="text-center align-center css-not-internet-container ml-auto mr-auto mt-16">
-    <v-icon size="200" color="primary">
-      mdi-wifi-cancel
-    </v-icon>
+    <v-img src="../assets/images/not-internet.jpg" class="css-wifi-image"></v-img>
     <div class="grey--text">
       Нет интернет соединения
     </div>
@@ -23,5 +21,9 @@ export default {
 <style lang="scss" scoped>
   .css-not-internet-container {
     width: 18em;
+
+    .css-wifi-image {
+      font-size: 200px;
+    }
    }
 </style>
