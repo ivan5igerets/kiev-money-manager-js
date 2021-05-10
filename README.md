@@ -32,7 +32,7 @@ On this page we can manage our categories and groups.
 
 On this picture shown how to add groups (categiries).
 
-![](https://photos.google.com/album/AF1QipOVoV7gFy90ihdmBTnS1-FcYeohZFcvx6S_ZhWe/photo/AF1QipPhh3pP4oYYPAvSbfg7L2XSxBIeStrEfKsjxxv9)
+![](https://photos.google.com/photo/AF1QipP1y-LRIUg644sm0HP-L5Or5RkGIzelykLXNyUO)
 
 
 Main page.
