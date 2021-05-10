@@ -29,6 +29,7 @@ Page categories.
 On this page we can manage our categories and groups.
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-26.jpg)
 
+
 On this picture shown how to add groups (categiries).
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-25.jpg)
 
@@ -37,6 +38,7 @@ Main page.
 This page displays operations for the selected month (upper right corner), you can also add a new operation.
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-20.jpg?raw=true)
 
+
 On this picture shown how to add operations (income/spending).
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-29.jpg)
 
@@ -44,15 +46,19 @@ Diagram page.
 Here the graph displays expenses or incomes for the selected month (upper right corner).
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-28.jpg)
 
-Side bar
+
+Side bar 
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-23.jpg)
+
 
 Profile page.
 On this page we can change info about current user.
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-30.jpg)
 
+
 Settings page.
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-31.jpg)
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
