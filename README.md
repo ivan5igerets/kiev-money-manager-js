@@ -20,5 +20,12 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Description
+Money Manager is an application designed to track our money, in which we can record our income and expenses,
+which will be shown on the graph. This is PWA, designed primarily for the phone, but is available on any device.
+
+
+Page categories.
+On this page we can manage our categories and groups.
+
+![]('https://photos.google.com/album/AF1QipOVoV7gFy90ihdmBTnS1-FcYeohZFcvx6S_ZhWe/photo/AF1QipPj0k7WKiOSNpjx8MynjS28KwdZ7e6jWM9TohNW')
