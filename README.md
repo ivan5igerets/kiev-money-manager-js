@@ -25,6 +25,11 @@ Money Manager is an application designed to track our money, in which we can rec
 which will be shown on the graph. This is PWA, designed primarily for the phone, but is available on any device.
 
 
+![](https://github.com/ivan5igerets/cryptocurrency_test/raw/master/img/chart.png)
+
+![](https://github.com/ivan5igerets/cryptocurrency_test/raw/master/img/cryptoList.png)
+
+
 Page categories.
 On this page we can manage our categories and groups.
 
