@@ -27,7 +27,7 @@ which will be shown on the graph. This is PWA, designed primarily for the phone,
 
 Page categories.
 On this page we can manage our categories and groups.
-![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-26.jpg)
+<src="https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-26.jpg" height="400px")
 
 On this picture shown how to add groups (categiries).
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-25.jpg)
