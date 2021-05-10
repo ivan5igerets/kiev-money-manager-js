@@ -13,7 +13,7 @@
 // кнопки
 .saveForm {
   height: 50px;
-  width: 90%;
+  width: calc(100% - 40px);
   background: #FFD630;
   border-radius: 5px;
   outline: none;
