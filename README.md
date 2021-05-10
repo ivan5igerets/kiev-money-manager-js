@@ -47,7 +47,8 @@ Here the graph displays expenses or incomes for the selected month (upper right 
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-28.jpg)
 
 
-Side bar 
+Side bar.
+
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-23.jpg)
 
 
@@ -57,6 +58,7 @@ On this page we can change info about current user.
 
 
 Settings page.
+
 ![](https://github.com/ivan5igerets/kiev-money-manager-js/blob/master/screenshots/photo_2021-05-10_12-07-31.jpg)
 
 
