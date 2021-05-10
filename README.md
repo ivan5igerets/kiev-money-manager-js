@@ -29,7 +29,7 @@ Page categories.
 On this page we can manage our categories and groups.
 
 ![](https://photos.google.com/album/AF1QipOVoV7gFy90ihdmBTnS1-FcYeohZFcvx6S_ZhWe/photo/AF1QipPj0k7WKiOSNpjx8MynjS28KwdZ7e6jWM9TohNW)
-<img src="https://photos.google.com/album/AF1QipOVoV7gFy90ihdmBTnS1-FcYeohZFcvx6S_ZhWe/photo/AF1QipPj0k7WKiOSNpjx8MynjS28KwdZ7e6jWM9TohNW">
+<img src=https://photos.google.com/album/AF1QipOVoV7gFy90ihdmBTnS1-FcYeohZFcvx6S_ZhWe/photo/AF1QipPj0k7WKiOSNpjx8MynjS28KwdZ7e6jWM9TohNW>
 
 On this picture shown how to add groups (categiries).
 
