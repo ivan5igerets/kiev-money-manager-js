@@ -22,7 +22,7 @@
           <template v-slot:activator="{on, attrs}">
             <div v-bind="attrs" v-on="on">
               <div class="css-date-month-operation">
-                {{o_date.i_month}}/{{o_date.i_day}}</div>
+                {{o_date.i_day}}/{{o_date.i_month}}</div>
               <div class="css-year-operation">{{o_date.i_year}}</div>
             </div>
           </template>

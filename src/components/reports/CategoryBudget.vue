@@ -13,7 +13,7 @@
         <div>Расходов: {{m_sum_total}}</div>
         <div class="ml-auto">
           Остаток:
-          <span v-bind:class="{'red--text': (m_budget - m_sum_total) < 0}">{{m_budget - m_sum_total}}</span>
+          <span v-bind:class="{'red--text': (m_budget - m_sum_total) < 0}">{{ (m_budget - m_sum_total).toFixed(1)}}</span>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@ export default {
     },
 
     round(m_sum) {
-      return Math.round((m_sum+Number.EPSILON)*100) / 100
+      return Math.round((m_sum+Number.EPSILON)*100) / 100)
     }
   }
 }
