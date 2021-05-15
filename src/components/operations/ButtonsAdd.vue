@@ -48,11 +48,25 @@ export default {
   position: fixed;
   bottom: 65px;
 
-  &.button-add-income {
-    right: 10px;
+  @media only screen  and (min-width: 501px) {
+    &.button-add-income {
+      right: 10px;
+      bottom: 130px;
+    }
+    &.button-add-spend {
+      right: 10px;
+    }
   }
-  &.button-add-spend {
-    left: 10px;
+
+  @media only screen and (max-width: 500px) {
+    &.button-add-income {
+      left: 10px;
+    }
+    &.button-add-spend {
+      right: 10px;
+    }
   }
+
+  
 }
 </style>
