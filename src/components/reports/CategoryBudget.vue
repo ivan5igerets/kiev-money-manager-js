@@ -63,7 +63,7 @@ export default {
     },
 
     round(m_sum) {
-      return Math.round((m_sum+Number.EPSILON)*100) / 100)
+      return Math.round(((m_sum + Number.EPSILON)*100) / 100)
     }
   }
 }
