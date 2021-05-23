@@ -10,7 +10,7 @@
         <div class="auth_tabs">
 
             <span class="left_tab" @click="toggle('SignIn')"> Авторизация </span>
-            <span class="right_tab" @click="toggle('SignUp')"> Регистарция </span>
+            <span class="right_tab" @click="toggle('SignUp')"> Регистрация </span>
             <span ref="line" class="line"></span>
 
         </div>
