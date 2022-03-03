@@ -2,8 +2,27 @@
   <loader v-if="loading"/>
   <v-card flat class="overflow-y-auto" id="category-list-container" v-else>
     <v-card-text>
+      <div v-for="a_group in a_category_groups" :key="a_group['k_category_group']">
+        <v-subheader>{{a_group['text_group']}}</v-subheader>
+        <div class="css-category-list-grid">
+          <div class="ma-2 text-center" v-for="a_category in a_group['a_categories']" :key="a_category.k_category">
+            <v-avatar
+              :color="k_category_select === a_category.k_category ? a_category.s_icon_color : 'grey'"
+              :key="a_category.k_category"
+              @click="categorySelect(a_category.k_category)"
+              size="45"
+            >
+              <v-icon dark>{{a_category.s_icon_class}}</v-icon>
+            </v-avatar>
+            <div class="text-center text-no-wrap css-category-title">
+              {{a_category.text_category}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <v-subheader v-if="a_category_groups">Без группы</v-subheader>
       <div class="css-category-list-grid">
-        <div class="ma-2 text-center" v-for="a_category in a_categories" :key="a_category.k_category">
+        <div class="ma-2 text-center" v-for="a_category in a_categories_single" :key="a_category.k_category">
           <v-avatar
             :color="k_category_select === a_category.k_category ? a_category.s_icon_color : 'grey'"
             :key="a_category.k_category"
@@ -47,7 +66,8 @@ export default {
 
   data() {
     return {
-      a_categories: [],
+      a_category_groups: [],
+      a_categories_single: [],
       k_category_select: this.k_category,
       loading: true,
     }
@@ -79,7 +99,30 @@ export default {
 
   mounted() {
     operationApi.categoriesGet({is_income: this.is_income}).then((a_response) => {
-      this.a_categories = a_response.data
+      const a_categories = a_response.data;
+      let a_category_groups = {};
+      a_categories.forEach((a_category) => {
+        // eslint-disable-next-line no-prototype-builtins
+        if(a_category.hasOwnProperty('k_category_group'))
+        {
+          // eslint-disable-next-line no-prototype-builtins
+          if(!a_category_groups.hasOwnProperty(a_category['k_category_group']))
+          {
+            a_category_groups[a_category['k_category_group']] = {
+              'a_categories': [],
+              'k_category_group': a_category['k_category_group'],
+              'text_group': a_category['text_group'],
+            };
+          }
+          a_category_groups[a_category['k_category_group']]['a_categories'].push(a_category);
+        }
+        else
+        {
+          this.a_categories_single.push(a_category);
+        }
+      });
+
+      this.a_category_groups = Object.values(a_category_groups)
       this.loading = false
     })
   },

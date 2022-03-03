@@ -29,7 +29,7 @@ export default {
     return {
       a_categories: [],
       dl_operation: CoreDate.now(),
-      is_income: this.$route.query.is_income,
+      is_income: Number(this.$route.query.is_income),
       k_category: 0,
       loading: true,
       m_sum: 0,

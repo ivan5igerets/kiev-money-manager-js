@@ -14,10 +14,10 @@
       v-model="text_operation"
       prepend-inner-icon="mdi-lead-pencil"></v-text-field>
     <div class="css-calculate-grid">
-      <div class="css-calculate-button" @click="numberSet(7)">7</div>
-      <div class="css-calculate-button" @click="numberSet(8)">8</div>
-      <div class="css-calculate-button" @click="numberSet(9)">9</div>
-      <div class="css-calculate-button css-calculate-button-date">
+      <button class="css-calculate-button" @click="numberSet(7)">7</button>
+      <button class="css-calculate-button" @click="numberSet(8)">8</button>
+      <button class="css-calculate-button" @click="numberSet(9)">9</button>
+      <button class="css-calculate-button css-calculate-button-date">
         <v-dialog ref="dialog" v-model="is_calender_open">
           <template v-slot:activator="{on, attrs}">
             <div v-bind="attrs" v-on="on">
@@ -28,30 +28,36 @@
           </template>
         <v-date-picker locale="ru-RU" v-model="dl_date" @input="dateSelect"></v-date-picker>
         </v-dialog>
-      </div>
-      <div class="css-calculate-button" @click="numberSet(4)">4</div>
-      <div class="css-calculate-button" @click="numberSet(5)">5</div>
-      <div class="css-calculate-button" @click="numberSet(6)">6</div>
-      <div class="css-calculate-button" @click="operatorSet('+')">
+      </button>
+      <button class="css-calculate-button" @click="numberSet(4)">4</button>
+      <button class="css-calculate-button" @click="numberSet(5)">5</button>
+      <button class="css-calculate-button" @click="numberSet(6)">6</button>
+      <button class="css-calculate-button" @click="operatorSet('+')">
         <v-icon>mdi-plus</v-icon>
-      </div>
-      <div class="css-calculate-button" @click="numberSet(1)">1</div>
-      <div class="css-calculate-button" @click="numberSet(2)">2</div>
-      <div class="css-calculate-button" @click="numberSet(3)">3</div>
-      <div class="css-calculate-button" @click="operatorSet('-')">
+      </button>
+      <button class="css-calculate-button" @click="numberSet(1)">1</button>
+      <button class="css-calculate-button" @click="numberSet(2)">2</button>
+      <button class="css-calculate-button" @click="numberSet(3)">3</button>
+      <button class="css-calculate-button" @click="operatorSet('-')">
         <v-icon>mdi-minus</v-icon>
-      </div>
-      <div class="css-calculate-button" @click="numberSet('.')">.</div>
-      <div class="css-calculate-button" @click="numberSet(0)">0</div>
-      <div class="css-calculate-button" @click="clear()">
+      </button>
+      <button class="css-calculate-button" @click="numberSet('.')">.</button>
+      <button class="css-calculate-button" @click="numberSet(0)">0</button>
+      <button class="css-calculate-button" @click="clear()">
         <v-icon>mdi-backspace-outline</v-icon>
-      </div>
+      </button>
       <div class="css-calculate-button css-button-save" @click="calculate()" v-if="text_operator">
         <v-icon>mdi-equal</v-icon>
       </div>
-      <div class="css-calculate-button css-button-save" v-else @click="save()">
+      <button
+          v-else
+          :class="{'blue-grey lighten-5': is_saving}"
+          :disabled="is_saving"
+          class="css-calculate-button css-button-save"
+          @click="save()"
+      >
         <v-icon>mdi-check-circle-outline</v-icon>
-      </div>
+      </button>
     </div>
     <v-snackbar
       :absolute="true"
@@ -100,7 +106,8 @@ export default {
       text_number_a: this.m_sum ? this.m_sum.toString() : '',
       text_number_b: '',
       text_number_display: this.m_sum.toString() ?? 0,
-      text_operator: null
+      text_operator: null,
+      is_saving: 0,
     }
   },
 
@@ -130,11 +137,14 @@ export default {
 
     numberValidate(text_current_number, i_new_number) {
       const text_number = text_current_number+i_new_number
-      const regex = /^\d{1,6}(\.|\.\d{1,2}?)?$/;
+      const regex = /^(0|[1-9]{1,6})(\.|\.\d{1,2}?)?$/;
       return text_number.match(regex) !== null
     },
 
     numberSet(i_number) {
+      if(parseFloat(this.text_number_a) === 0)
+        this.text_number_a = '';
+
       if(this.text_operator === null){
         if(!this.numberValidate(this.text_number_a, i_number))
           return;
@@ -212,6 +222,9 @@ export default {
         return false;
       }
 
+      m_sum = parseFloat(m_sum);
+      this.is_saving = 1
+
       this.$emit('operation_save', {
         'dl_operation': this.dl_date,
         'm_sum': m_sum,
@@ -242,7 +255,6 @@ export default {
   .css-calculate-button {
     border-bottom: 1px solid #CCCCCC;
     border-right: 1px solid #CCCCCC;
-    padding-top: 15px;
     text-align: center;
     background-color: #fbf8f8;
 

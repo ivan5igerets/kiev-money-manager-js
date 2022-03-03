@@ -85,8 +85,10 @@ export default {
         'mdi-hanger', 'mdi-gift-outline', 'mdi-google-controller', 'mdi-nintendo-game-boy',
         'mdi-car', 'mdi-train-car', 'mdi-airplane', 'mdi-fuel',
         'mdi-school', 'mdi-home-city', 'mdi-water', 'mdi-guitar-acoustic',
+        'mdi-table-tennis', 'mdi-music-clef-treble', 'mdi-music', 'mdi-translate',
         'mdi-bottle-tonic-plus', 'mdi-animation', 'mdi-home-variant-outline', 'mdi-water-pump',
         'mdi-cash-multiple', 'mdi-credit-card-outline', 'mdi-currency-usd', 'mdi-cash-100',
+        'mdi-language-php', 'mdi-language-javascript', 'mdi-web', 'mdi-language-python',
       ]
     }
   },
@@ -102,9 +104,6 @@ export default {
 </script>
 
 <style>
-  .v-color-picker__dot {
-    display: none;
-  }
   .css-icon-select {
     border-bottom: 1px solid #0000006b;
   }
