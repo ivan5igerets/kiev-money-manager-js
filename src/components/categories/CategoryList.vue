@@ -3,6 +3,7 @@
     <v-list-item-group color="primary">
       <v-list-item
         v-for="(a_category, i_index) in a_category_list"
+        :class="{'blue-grey lighten-5': !a_category.is_active, 'd-none': !show_inactive_category && !a_category.is_active}"
         :key="i_index"
         @click="categoryEdit(a_category.k_category)"
       >
@@ -41,6 +42,10 @@ export default {
   props: {
     a_category_list: {
       type: Array,
+      required: true,
+    },
+    show_inactive_category: {
+      type: Boolean,
       required: true,
     }
   },

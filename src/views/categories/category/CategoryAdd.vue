@@ -17,6 +17,10 @@
       v-show="is_budget_show"
     />
     <v-select :clearable="true" :items="a_groups" label="Группа" v-model="k_category_group"></v-select>
+    <v-switch
+        v-model="is_active"
+        label="Активная"
+    ></v-switch>
     <button_save_form id_form="category_add"/>
   </v-form>
 </template>
@@ -47,6 +51,7 @@ export default {
       a_icon: {'s_icon_class': 'mdi-food', 's_icon_color': '#f44336FF'},
       error_message_budget: '',
       error_message_name: '',
+      is_active: 1,
       is_budget_show: false,
       k_category_group: '',
       loading: true,
@@ -93,6 +98,7 @@ export default {
         return;
 
       categoryApi.post({
+        is_active: Number(this.is_active),
         is_income: this.$route.query.is_income,
         k_category_group: this.k_category_group,
         m_budget_float: this.a_budget.is_percent ? 0 : this.a_budget.m_budget,

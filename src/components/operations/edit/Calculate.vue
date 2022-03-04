@@ -52,7 +52,6 @@
       <button
           v-else
           :class="{'blue-grey lighten-5': is_saving}"
-          :disabled="is_saving"
           class="css-calculate-button css-button-save"
           @click="save()"
       >
@@ -210,6 +209,9 @@ export default {
     },
 
     save() {
+      if(this.is_saving)
+        return true
+
       let m_sum = 0;
       if(this.f_sum_operation)
         m_sum = this.f_sum_operation
@@ -219,7 +221,7 @@ export default {
       if(m_sum === 0)
       {
         this.is_sum_zero = true
-        return false;
+        return true;
       }
 
       m_sum = parseFloat(m_sum);

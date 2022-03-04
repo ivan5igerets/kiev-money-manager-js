@@ -89,6 +89,7 @@ export default {
         'mdi-bottle-tonic-plus', 'mdi-animation', 'mdi-home-variant-outline', 'mdi-water-pump',
         'mdi-cash-multiple', 'mdi-credit-card-outline', 'mdi-currency-usd', 'mdi-cash-100',
         'mdi-language-php', 'mdi-language-javascript', 'mdi-web', 'mdi-language-python',
+        'mdi-hand-coin', 'mdi-charity', 'mdi-collage', 'mdi-creation',
       ]
     }
   },

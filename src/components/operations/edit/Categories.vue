@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      <v-subheader v-if="a_category_groups">Без группы</v-subheader>
+      <v-subheader v-if="a_category_groups.length">Без группы</v-subheader>
       <div class="css-category-list-grid">
         <div class="ma-2 text-center" v-for="a_category in a_categories_single" :key="a_category.k_category">
           <v-avatar
@@ -98,7 +98,10 @@ export default {
   },
 
   mounted() {
-    operationApi.categoriesGet({is_income: this.is_income}).then((a_response) => {
+    operationApi.categoriesGet({
+      is_income: this.is_income,
+      k_operation: this.$route.params.k_operation
+    }).then((a_response) => {
       const a_categories = a_response.data;
       let a_category_groups = {};
       a_categories.forEach((a_category) => {

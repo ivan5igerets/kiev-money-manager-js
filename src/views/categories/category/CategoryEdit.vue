@@ -23,6 +23,10 @@
       label="Группа"
       v-model="k_category_group"
     ></v-select>
+    <v-switch
+      v-model="is_active"
+      label="Активная"
+    ></v-switch>
     <button_save_form id_form="category_add" />
     <delete_dialog_window
       event_name="delete-item"
@@ -69,10 +73,11 @@ export default {
       a_icon: {},
       error_message_budget: '',
       error_message_name: '',
-      show_budget: false,
+      is_active: 0,
       is_delete: false,
       k_category_group: '',
       loading: true,
+      show_budget: false,
       text_category: '',
     }
   },
@@ -84,11 +89,11 @@ export default {
       userApi.getUser()
     ]).then(a_response => {
       this.a_category_info = a_response[1].data;
-
-      this.a_budget.is_percent = Number(this.a_category_info.m_budget_percent !== 0)
-      this.a_budget.m_budget = this.a_category_info.m_budget_percent || this.a_category_info.m_budget_float
-      this.a_icon.s_icon_color = this.a_category_info.s_icon_color
-      this.a_icon.s_icon_class = this.a_category_info.s_icon_class
+      this.is_active = this.a_category_info.is_active;
+      this.a_budget.is_percent = Number(this.a_category_info.m_budget_percent !== 0);
+      this.a_budget.m_budget = this.a_category_info.m_budget_percent || this.a_category_info.m_budget_float;
+      this.a_icon.s_icon_color = this.a_category_info.s_icon_color;
+      this.a_icon.s_icon_class = this.a_category_info.s_icon_class;
       this.text_category = this.a_category_info.text_category;
 
       a_response[0].data.forEach((a_group) => {
@@ -138,6 +143,7 @@ export default {
         return;
 
       categoryApi.put(this.$route.params.k_category, {
+        is_active: Number(this.is_active),
         k_category_group: this.k_category_group,
         m_budget_float: this.a_budget.is_percent ? 0 : this.a_budget.m_budget,
         m_budget_percent: this.a_budget.is_percent ? this.a_budget.m_budget : 0,

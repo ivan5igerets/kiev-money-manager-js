@@ -1,6 +1,12 @@
 <template>
   <div class="css-group-list">
-    <v-list-group v-for="(a_group, i_index) in a_group_list" :key="i_index" no-action flat>
+    <v-list-group
+      v-for="(a_group, i_index) in a_group_list"
+      :key="i_index"
+      :class="{'blue-grey lighten-5': !a_group.is_active, 'd-none': !a_group.is_active && !show_inactive_category}"
+      no-action
+      flat
+    >
       <template v-slot:activator>
         <category_icon v-bind:a_icon="{s_icon_class: a_group.s_icon_class, s_icon_color: a_group.s_icon_color}" />
         <v-list-item-title>{{a_group.text_group}}</v-list-item-title>
@@ -21,8 +27,9 @@
         </v-menu>
       </template>
       <v-list-item
-        class="pl-14"
         v-for="(a_category, k_category) in a_group.a_category"
+        :class="{'blue-grey lighten-5': !a_category.is_active, 'd-none': !show_inactive_category && !a_category.is_active}"
+        class="pl-14"
         :key="k_category"
         @click="categoryEdit(a_category.k_category)"
         link
@@ -89,6 +96,10 @@ export default {
   props: {
     a_group_list: {
       type: Array,
+      required: true,
+    },
+    show_inactive_category: {
+      type: Boolean,
       required: true,
     }
   },

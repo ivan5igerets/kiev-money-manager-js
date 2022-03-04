@@ -1,6 +1,6 @@
 <template>
   <loader v-if="loading" />
-  <div class="css-main-container" v-else>
+  <div v-else>
     <div class="css-settings-container ma-4">
       <v-switch
         id="save_balance_next_month"
