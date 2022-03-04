@@ -141,7 +141,7 @@ export default {
     },
 
     numberSet(i_number) {
-      if(parseFloat(this.text_number_a) === 0)
+      if(this.text_number_a === '0' && i_number>0)
         this.text_number_a = '';
 
       if(this.text_operator === null){
