@@ -136,7 +136,7 @@ export default {
 
     numberValidate(text_current_number, i_new_number) {
       const text_number = text_current_number+i_new_number
-      const regex = /^(0|[1-9][0-9]{1,5})(\.|\.\d{1,2}?)?$/;
+      const regex = /^([0-9]|[1-9][0-9]{1,5})(\.|\.\d{1,2}?)?$/;
       return text_number.match(regex) !== null
     },
 
